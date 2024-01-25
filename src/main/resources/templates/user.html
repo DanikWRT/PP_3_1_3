@@ -28,7 +28,9 @@
         <td><p th:text="${user.getEmail()}" class="h6"> VALUE </p></td>
         <td><p th:text="${user.getFirstName()}" class="h6"> VALUE </p></td>
         <td><p th:text="${user.getLastName()}" class="h6"> VALUE </p></td>
-        <td><p sec:authentication="principal.authorities" class="h6"> VALUE </p></td>
+        <td>
+            <span th:object="${user}" th:each="role,iterStat: ${user.getRoles()} " th:text="${role.name} + ${iterStat.last ? '' : ', '}" > VALUE</span>
+        </td>
     </tr>
 </table>
 <br/>
